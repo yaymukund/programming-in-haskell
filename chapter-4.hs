@@ -19,16 +19,19 @@ halve items = splitAt half items
 --
 --    (a) a conditional expression;
 
+safetail :: Eq a => [a] -> [a]
 safetail xs = if xs == [] then [] else tail xs
 
 --    (b) guarded equations;
 
+safetail' :: Eq a => [a] -> [a]
 safetail' xs
   | xs == []  = []
   | otherwise = tail xs
 
 --    (c) pattern matching.
 
+safetail'' :: Eq a => [a] -> [a]
 safetail'' [] = []
 safetail'' xs = tail xs
 
